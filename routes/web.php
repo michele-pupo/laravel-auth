@@ -32,8 +32,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-// rotta per pagina di amministrazione
-// Route::get('/admin', [DashboardController::class,'index'])->middleware(['auth']);
 
 // per gestire tante rotte insieme sotto lo stesso middleware
 Route::middleware(['auth', 'verified'])
@@ -41,6 +39,8 @@ Route::middleware(['auth', 'verified'])
         ->prefix('admin')
         ->group(function () {
             // qui ci inseriremo tutte le rotte
-            Route::get('/',[ProjectController::class, 'index'])->name('index'); 
+            Route::get('/',[DashboardController::class, 'index'])->name('index');
+            Route::get('/admin', [ProjectController::class, 'index'])->name('index');
+            Route::get('/admin', [ProjectController::class, 'create'])->name('create');  
         }
 );

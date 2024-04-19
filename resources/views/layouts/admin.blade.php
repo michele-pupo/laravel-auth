@@ -10,8 +10,10 @@
     @vite(['resources/js/app.js'])
 </head>
 <body>
-    <div class="container py-5">
-        <h1 class="text-center">Laravel Boolfolio</h1>
+    <div class="container py-5 text-center">
+        <h1>Laravel Boolfolio</h1>
+        
+        <button class="btn btn-primary mt-5"><a class="text-decoration-none " href="{{route('admin.index')}}">Gestisci i progetti</a></button>
     </div>
 </body>
 </html>
