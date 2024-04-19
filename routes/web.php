@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,6 @@ Route::middleware(['auth', 'verified'])
         ->prefix('admin')
         ->group(function () {
             // qui ci inseriremo tutte le rotte
-            Route::get('/',[DashboardController::class, 'index'])->name('index'); 
+            Route::get('/',[ProjectController::class, 'index'])->name('index'); 
         }
 );
