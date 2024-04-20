@@ -11,7 +11,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,33 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|max:255',
+            'description' =>'required|max:5000',
+            'project_image' => 'required|max:5000',
+            'used_technologies' => 'required|max:255',
+            'project_date' => 'required|date',
+            'link_github' => 'required|max:255',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'required' => 'Il campo :attribute deve essere inserito',
+            'project_date.date' => 'La data di presentazione deve essere valida',
+            'max' => 'Il campo :attribute deve essere :max caratteri',
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => 'nome',
+            'description' => 'descrizione',
+            'project_image' => 'immagine progetto',
+            'used_technologies' => 'tecnologie usate',
+            'project_date' => 'data di consegna',
+            'link_github' => 'link_github',
         ];
     }
 }
