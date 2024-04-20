@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Project;
-use App\Http\Requests\StoreProjectRequest;
-use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Http\Request;
+USE App\Http\Requests\StoreProjectRequest;
 
 class ProjectController extends Controller
 {
@@ -14,8 +15,9 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+        // dd($projects);
 
-        return view('admin/index', compact('projects'));
+        return view('projects.dashboard', compact('projects'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin/create');
+        return view('projects.create');
     }
 
     /**
@@ -53,7 +55,7 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProjectRequest $request, Project $project)
+    public function update(StoreProjectRequest $request, Project $project)
     {
         //
     }

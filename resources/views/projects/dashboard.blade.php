@@ -4,11 +4,10 @@
 
 <div class="container py-5">
     <h1>Pagina di amministrazione</h1>
-    <h2>Benvenuto {{$user->name}} da qui puoi gestire i tuoi progetti</h2>
     <div class="container py-5">
         <h1 class="text-center pb-4 display-1 fw-bold text-uppercase">Lista progetti</h1>
         <div class="row row-cols-6 justify-content-start row-gap-2">
-            {{-- @foreach ($projects as $project)
+            @foreach ($projects as $project)
             <div class="card h-auto d-flex flex-column justify-content-between p-2 border-3 border-danger">
                 <div>
                     <img src="{{$project->project_image}}" class="card-img-top w-100 object-fit-cover" alt="{{$project->name}}">
@@ -21,11 +20,11 @@
                 </div>
                 <button class="btn btn-info"><a class="text-decoration-none text-black" href="{{route('comics.show', $project->id)}}">Visualizza</a></button>
             </div>
-            @endforeach --}}
+            @endforeach
         </div>
 
         <div class="d-flex justify-content-center">
-            <button class="btn btn-primary mt-5"><a class="text-decoration-none " href="{{route('admin.create')}}">Aggiungi un progetto</a></button>
+            <button class="btn btn-primary mt-5"><a class="text-decoration-none " href="{{route('projects.create')}}">Aggiungi un progetto</a></button>
         </div>
     </div>
 </div>
