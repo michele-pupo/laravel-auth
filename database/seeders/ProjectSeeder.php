@@ -22,7 +22,10 @@ class ProjectSeeder extends Seeder
             $newProject->description = $faker->paragraph();
             $newProject->project_image = $faker->imageUrl(640, 480, 'a website', true);;
             $newProject->used_technologies = $faker->words(rand(1, 3), true);
-            $newProject->project_date = $faker->dateTimeThisYear();
+            $fakerDate = $faker->dateTimeThisYear();
+            $formattedDate = $fakerDate->format('Y-m-d');
+
+            $newProject->project_date = $formattedDate;
             $newProject->link_github = $faker->url();
             $newProject->save();
         }

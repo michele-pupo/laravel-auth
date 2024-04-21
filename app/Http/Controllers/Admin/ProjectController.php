@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 USE App\Http\Requests\StoreProjectRequest;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -38,7 +39,7 @@ class ProjectController extends Controller
         $newProject->fill($request->all());
         $newProject->save();
 
-        return redirect(route('projects.index'));
+        return redirect()->route('projects.index');
     }
 
     /**
@@ -54,7 +55,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('projects.edit', compact('project'));
     }
 
     /**
@@ -62,7 +63,10 @@ class ProjectController extends Controller
      */
     public function update(StoreProjectRequest $request, Project $project)
     {
-        //
+        $request->validated();
+        $project->fill($request->all());
+        $project->save();
+        return redirect(route('projects.index'));
     }
 
     /**
