@@ -33,7 +33,12 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $request->validated();
+        $newProject = new Project();
+        $newProject->fill($request->all());
+        $newProject->save();
+
+        return redirect(route('projects.index'));
     }
 
     /**
@@ -41,7 +46,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('projects.show', compact('project'));
     }
 
     /**

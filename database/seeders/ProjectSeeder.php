@@ -5,26 +5,25 @@ namespace Database\Seeders;
 use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class ProjectSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(Faker $faker): void
     {
-        $projects = config('projects');
+        
 
-        foreach ($projects as $project) {
+        for($i = 0; $i < 10; $i++){
             $newProject = new Project();
-
-            $newProject->name = $project['name'];
-            $newProject->description = $project['description'];
-            $newProject->project_image = $project['project_image'];
-            $newProject->used_technologies = $project['used_technologies'];
-            $newProject->project_date = $project['project_date'];
-            $newProject->link_github = $project['link_github'];
-
+            $newProject->name = $faker->word();
+            $newProject->description = $faker->paragraph();
+            $newProject->project_image = $faker->imageUrl(640, 480, 'a website', true);;
+            $newProject->used_technologies = $faker->words(rand(1, 3), true);
+            $newProject->project_date = $faker->dateTimeThisYear();
+            $newProject->link_github = $faker->url();
             $newProject->save();
         }
     }
