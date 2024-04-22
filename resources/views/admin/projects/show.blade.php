@@ -17,7 +17,7 @@
         <div class="container justify-content-center d-flex gap-5">
             <button class="btn btn-warning"><a class="text-decoration-none text-white" href="{{route('admin.projects.edit', $project->id)}}">Modifica</a></button>
             <button type="button" class="btn btn-danger px-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Elimina</button>
-            <button class="btn btn-info"><a class="text-decoration-none text-white" href="{{route('admin.projects.index')}}">Indietro</a></button>
+            <button class="btn btn-secondary"><a class="text-decoration-none text-white" href="{{route('admin.projects.index')}}">Indietro</a></button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">

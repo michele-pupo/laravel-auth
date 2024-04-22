@@ -34,6 +34,9 @@
     
             </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-primary mt-5"><a class="text-decoration-none " href="{{route('admin.projects.create')}}">Aggiungi un progetto</a></button>
+        </div>
     </div>
 </div>
 
