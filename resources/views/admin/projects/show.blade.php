@@ -12,7 +12,7 @@
         <div>{{$project->link_github}}</div>
     </div>
     <div class="container justify-content-center d-flex gap-5">
-        <button class="btn btn-warning"><a class="text-decoration-none text-white" href="{{route('projects.edit', $project->id)}}">Modifica</a></button>
+        <button class="btn btn-warning"><a class="text-decoration-none text-white" href="{{route('admin.projects.edit', $project->id)}}">Modifica</a></button>
         <button type="button" class="btn btn-danger px-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Elimina
         </button>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                    <form action="{{route('projects.destroy', $project->id)}}" method="POST">
+                    <form action="{{route('admin.projects.destroy', $project->id)}}" method="POST">
 
                         @csrf
 

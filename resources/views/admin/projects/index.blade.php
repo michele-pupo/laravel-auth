@@ -18,13 +18,13 @@
                         <h6 class="comic-price text-danger pb-4">{{$project->project_date}}</h6>
                     </div>
                 </div>
-                <button class="btn btn-info"><a class="text-decoration-none text-black" href="{{route('projects.show', $project->id)}}">Visualizza</a></button>
+                <button class="btn btn-info"><a class="text-decoration-none text-black" href="{{route('admin.projects.show', $project->id)}}">Visualizza</a></button>
             </div>
             @endforeach
         </div>
 
         <div class="d-flex justify-content-center">
-            <button class="btn btn-primary mt-5"><a class="text-decoration-none " href="{{route('projects.create')}}">Aggiungi un progetto</a></button>
+            <button class="btn btn-primary mt-5"><a class="text-decoration-none " href="{{route('admin.projects.create')}}">Aggiungi un progetto</a></button>
         </div>
     </div>
 </div>
