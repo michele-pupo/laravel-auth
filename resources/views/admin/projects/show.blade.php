@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="d-flex gap-3">
-    <img src="{{$project->project_image}}" alt="">
+    <img src="{{asset('storage/' . $project->project_image)}}" alt="Copertina progetto">
     <div>
         <h2>{{$project->name}}</h2>
         <p>{{$project->description}}</p>

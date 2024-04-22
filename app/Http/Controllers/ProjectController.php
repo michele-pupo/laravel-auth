@@ -38,6 +38,14 @@ class ProjectController extends Controller
     {
         $request->validated();
         $newProject = new Project();
+
+        if ($request->hasFile('project_image')) {
+
+            $path = Storage::disk('public')->put('project_images', $request->project_image);
+
+            $newProject->project_image = $path;
+        }
+
         $newProject->fill($request->all());
         $newProject->save();
 
@@ -66,9 +74,17 @@ class ProjectController extends Controller
     public function update(StoreProjectRequest $request, Project $project)
     {
         $request->validated();
-        $project->fill($request->all());
-        $project->save();
-        return redirect(route('admin.projects.index'));
+
+        if ($request->hasFile('project_image')) {
+
+            $path = Storage::disk('public')->put('project_images', $request->project_image);
+
+            $project->project_image = $path;
+        }
+
+        $project->update($request->all());
+        
+        return redirect()->route('admin.projects.index', $project->id);
     }
 
     /**

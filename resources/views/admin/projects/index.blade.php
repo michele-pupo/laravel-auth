@@ -10,7 +10,7 @@
             @foreach ($projects as $project)
             <div class="card h-auto d-flex flex-column justify-content-between p-2 border-3 border-danger">
                 <div>
-                    <img src="{{$project->project_image}}" class="card-img-top w-100 object-fit-cover" alt="{{$project->name}}">
+                    <img src="{{asset('storage/' . $project->project_image)}}" class="card-img-top w-100 object-fit-cover" alt="Copertina progetto">
                     <div class="comic-body text-center">
                         <h3 class="comic-title">{{$project->name}}</h3>
                         <h4 class="comic-series">{{$project->description}}</h4>

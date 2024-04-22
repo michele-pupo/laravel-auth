@@ -24,7 +24,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'description' =>'required|max:5000',
-            'project_image' => 'required|max:5000',
+            'project_image' => 'file|max:4096|required|mimes:jpg,bmp,png',
             'used_technologies' => 'required|max:255',
             'project_date' => 'required|date',
             'link_github' => 'required|max:255',
@@ -37,6 +37,9 @@ class StoreProjectRequest extends FormRequest
             'required' => 'Il campo :attribute deve essere inserito',
             'project_date.date' => 'La data di presentazione deve essere valida',
             'max' => 'Il campo :attribute deve essere :max caratteri',
+            'project_image' => 'Inserisci un file per la copertina',
+            'project_image.mimes' => "Il file deve essere un'immagine",
+            'project_image.max' => 'La dimensione del file deve essere massimo di 4096 KB'
         ];
     }
 

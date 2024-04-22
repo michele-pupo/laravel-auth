@@ -13,8 +13,7 @@ class Project extends Model
     use SoftDeletes;
 
     protected $fillable = ['name', 
-                           'description', 
-                           'project_image', 
+                           'description',  
                            'used_technologies',
                            'project_date', 
                            'link_github'
