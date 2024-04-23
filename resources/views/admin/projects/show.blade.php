@@ -2,12 +2,12 @@
 
 @section('content')
 
-<div class="container py-5">
+<div class="container py-2">
 
     <div class="d-flex flex-column gap-3 align-items-center">
+        <h2 class="fw-bold display-3">{{$project->name}}</h2>
         <img class="w-75" src="{{asset('storage/' . $project->project_image)}}" alt="Copertina progetto">
         <div class="text-center">
-            <h2 class="fw-bold display-3">{{$project->name}}</h2>
             <p class="fs-5">{{$project->description}}</p>
             <h6>{{$project->used_technologies}}</h6>
             <h6>{{ \Carbon\Carbon::parse($project->project_date)->format('d/m/Y') }}</h6>
